@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d6245b-6e82-4e5f-b700-361bed6673ac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/trial/DemoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    <list default="true" id="a5d6245b-6e82-4e5f-b700-361bed6673ac" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/Userdao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/ConnectionProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/JDBCUtilConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/RegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/mystyles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/myjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/normal_navbar.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/register_page.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/trial/DemoServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,30 +47,38 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2ckxL38qbbiPhGW94FT3hGDFyht" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Smart Tomcat.Apache Tomcat/9.0.86.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Smart Tomcat.Apache Tomcat/9.0.86.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/JARS/rs2xml.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.tech.blog.helper" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Apache Tomcat/9.0.86" type="com.poratu.idea.plugins.tomcat">
       <predefined_log_file enabled="true" id="Tomcat Localhost Log" />
@@ -75,9 +89,6 @@
       <option name="catalinaBase" value="C:\Users\HP\.SmartTomcat\first-web-app\first-web-app" />
       <option name="contextPath" value="/first-web-app" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -87,7 +98,7 @@
         </TomcatInfo>
       </option>
       <option name="vmOptions" value="" />
-      <module name="first-web-app" />
+      <module name="TechBlog" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,6 +120,19 @@
       <option name="presentableId" value="Default" />
       <updated>1708669322851</updated>
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1708678675646</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708678675646</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
