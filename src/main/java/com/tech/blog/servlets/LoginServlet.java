@@ -1,22 +1,22 @@
 package com.tech.blog.servlets;
 
+import com.mysql.cj.protocol.Message;
 import com.tech.blog.dao.Userdao;
 import com.tech.blog.entities.User;
 import com.tech.blog.helper.ConnectionProvider;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+@WebServlet("/LoginServlet")
 
-@MultipartConfig
-//@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,32 +32,42 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginServlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+//          login
+//            fetch username and password from request
+            String userEmail = request.getParameter("email");
+            String userPassword = request.getParameter("password");
 
+            Userdao dao = new Userdao(ConnectionProvider.getConnection());
 
-//            fetch all form data
-            String check = request.getParameter("check");
-            if (check == null) {
-                out.println("Accept the terms and Conditions");
+            User u = dao.getUserByEmailAndPassword(userEmail, userPassword);
+
+            if (u == null) {
+                //login.................
+//                error///
+//                out.println("Invalid Details..try again");
+                //Message msg = new Message("Invalid Details ! try with another", "error", "alert-danger");
+                HttpSession s = request.getSession();
+                //s.setAttribute("msg", msg);
+                out.println("Invalid Details..try again");
+
+                response.sendRedirect("login_page.jsp");
             } else {
+                //......
+//                login success
+                HttpSession s = request.getSession();
+                s.setAttribute("currentUser", u);
+                response.sendRedirect("profile.jsp");
 
-                String name = request.getParameter("user_name");
-                String email = request.getParameter("user_email");
-                String password = request.getParameter("user_password");
-                String gender = request.getParameter("gender");
-                String about = request.getParameter("about");
-                //create user object and set all data to that object..
-                User user = new User(name, email, password, gender, about);
-
-                //create a user daao object..
-                Userdao dao = new Userdao(ConnectionProvider.getConnection());
-                if (dao.saveUser(user)) {
-//                save..
-                    out.println("done");
-                } else {
-                    out.println("Some field's are empty.");
-                }
             }
 
+            out.println("</body>");
+            out.println("</html>");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
