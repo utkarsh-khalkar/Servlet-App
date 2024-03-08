@@ -14,8 +14,10 @@ public class ConnectionProvider {
                 // Driver Class Loading
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
+
                 // create a connection
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/techblog", "root", "12345");
+                System.out.println("Connection Established Successfully.");
             }
 
         } catch (Exception e) {

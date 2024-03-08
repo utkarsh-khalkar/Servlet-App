@@ -52,9 +52,9 @@ public class Userdao {
             pstmt.setString(2, password);
 
             ResultSet set = pstmt.executeQuery();
-// Data from the Db
+            // Data from the Db
             if (set.next()) {
-// Settting Data to the Object
+            // Settting Data to the Object
                 user=new User();
 
                 user.setUserId(set.getInt("userId"));
