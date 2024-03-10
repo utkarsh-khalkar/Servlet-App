@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5d6245b-6e82-4e5f-b700-361bed6673ac" name="Changes" comment="Updated Login Module">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/entities/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/Helper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/EditServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pics/default.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/Userdao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/Userdao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/ConnectionProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +61,7 @@
     &quot;Smart Tomcat.Apache Tomcat/9.0.86.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java Full Stack Developer iNeuron/first-web-app&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java Full Stack Developer iNeuron/first-web-app/src/main/webapp/pics&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -69,6 +70,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java Full Stack Developer iNeuron\first-web-app\src\main\webapp\pics" />
       <recent name="D:\Java Full Stack Developer iNeuron\first-web-app\src\main\webapp\img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -140,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708938124409</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Updated Login Module">
+      <option name="closed" value="true" />
+      <created>1709916602656</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709916602656</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

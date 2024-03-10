@@ -1,6 +1,7 @@
 package com.tech.blog.servlets;
 
 import com.tech.blog.dao.Userdao;
+import com.tech.blog.entities.Message;
 import com.tech.blog.entities.User;
 import com.tech.blog.helper.ConnectionProvider;
 
@@ -39,13 +40,21 @@ public class LoginServlet extends HttpServlet {
             if (user==null)
             {
                 //Login Error
-                out.println("Invalid Details..");
+//                out.println("Invalid Details..");
+                Message msg=new Message("Invalid Details ! try with another ","error","alert-danger");
+                HttpSession s=request.getSession();
+                s.setAttribute("msg",msg);
+                response.sendRedirect("login_page.jsp");
             }else {
                 // Login Successfull
 
                 HttpSession s=request.getSession();
                 s.setAttribute("currentUser",user);
                 response.sendRedirect("profile.jsp");
+//                System.out.println(user.getAbout());
+//                System.out.println(user.getName());
+//                System.out.println(user.getUserId());
+
             }
             out.println("</body>");
             out.println("</html>");
