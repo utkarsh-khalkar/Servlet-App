@@ -13,6 +13,28 @@
     .banner-background{
     clip-path: polygon(0 0, 100% 0, 100% 79%, 0 95%);
     }
+    .marquee-container {
+        overflow: hidden;
+        background-color: #F98866;
+        white-space: nowrap;
+    }
+
+    .marquee-container p {
+        display: inline-block;
+        animation: marquee 15s linear infinite; /* Adjust duration as needed */
+        transform: translateX(100%);
+         color: white; /* Set text color to white */
+            font-size: 20px; /* Set font size to 20 pixels */
+    }
+
+    @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+    h3.display-3 {
+            font-family: 'Times New Roman', Times, serif; /* Apply Times New Roman font to h3 elements with the class display-3 */
+        }
+
 </style>
 </head>
 <body>
@@ -22,8 +44,12 @@
 
 <!--banner-->
 <div class="container-fluid p-0 m-0">
+        <div class="marquee-container">
+            <p>Stay updated with the latest in technology!</p>
+        </div>
 
             <div class="jumbotron primary-background text-white banner-background">
+
                 <div class="container">
                     <h3 class="display-3">Welcome to TechBlog </h3>
 
@@ -48,7 +74,7 @@
             <div class="row mb-2">
                 <div class="col-md-4">
                     <div class="card" "> <div class="card-body">
-                        <h5 class="card-title">Java Programming</h5>
+                        <h5 class="card-title">What is Collection Framework.</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn primary-background text-white">Read more</a>
                       </div>
@@ -57,7 +83,7 @@
 
                  <div class="col-md-4">
                             <div class="card" "> <div class="card-body">
-                                <h5 class="card-title">Java Programming</h5>
+                                <h5 class="card-title">What is array in java?</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn primary-background text-white">Read more</a>
                               </div>
@@ -66,7 +92,7 @@
 
                  <div class="col-md-4">
                                      <div class="card" "> <div class="card-body">
-                                         <h5 class="card-title">Java Programming</h5>
+                                         <h5 class="card-title">What is Bit Manipulation?</h5>
                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                          <a href="#" class="btn primary-background text-white">Read more</a>
                                        </div>
@@ -79,7 +105,7 @@
             <div class="row">
                             <div class="col-md-4">
                                 <div class="card" "> <div class="card-body">
-                                    <h5 class="card-title">Java Programming</h5>
+                                    <h5 class="card-title">What is Programming?</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                     <a href="#" class="btn primary-background text-white">Read more</a>
                                   </div>
@@ -88,7 +114,7 @@
 
                              <div class="col-md-4">
                                         <div class="card" "> <div class="card-body">
-                                            <h5 class="card-title">Java Programming</h5>
+                                            <h5 class="card-title">What is Pyhton Programming?</h5>
                                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                             <a href="#" class="btn primary-background text-white">Read more</a>
                                           </div>
@@ -97,7 +123,7 @@
 
                              <div class="col-md-4">
                                                  <div class="card" "> <div class="card-body">
-                                                     <h5 class="card-title">Java Programming</h5>
+                                                     <h5 class="card-title">What is Java Programming?</h5>
                                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                                      <a href="#" class="btn primary-background text-white">Read more</a>
                                                    </div>

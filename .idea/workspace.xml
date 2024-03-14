@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5d6245b-6e82-4e5f-b700-361bed6673ac" name="Changes" comment="Updated Login Module">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/helper/Helper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/EditServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pics/default.png" afterDir="false" />
+    <list default="true" id="a5d6245b-6e82-4e5f-b700-361bed6673ac" name="Changes" comment="Logout Module updated">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/LikeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/PostDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/entities/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/entities/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/AddPostServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LikeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/keyboard.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/img/page.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/load_posts.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/show_blog_page.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/Userdao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/dao/Userdao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tech/blog/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login_page.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/myjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/myjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/normal_navbar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/normal_navbar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/profile.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +68,7 @@
     &quot;Smart Tomcat.Apache Tomcat/9.0.86.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java Full Stack Developer iNeuron/first-web-app/src/main/webapp/pics&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java Full Stack Developer iNeuron/first-web-app/src/main/webapp/img&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -70,8 +77,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java Full Stack Developer iNeuron\first-web-app\src\main\webapp\pics" />
       <recent name="D:\Java Full Stack Developer iNeuron\first-web-app\src\main\webapp\img" />
+      <recent name="D:\Java Full Stack Developer iNeuron\first-web-app\src\main\webapp\pics" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.tech.blog.helper" />
@@ -150,14 +157,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709916602656</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Logout Module updated">
+      <option name="closed" value="true" />
+      <created>1710064875816</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710064875816</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Update UI and database interaction" />
     <MESSAGE value="Updated Login Module" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Login Module" />
+    <MESSAGE value="Logout Module updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Logout Module updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

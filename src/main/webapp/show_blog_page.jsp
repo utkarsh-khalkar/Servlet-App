@@ -1,10 +1,18 @@
-<%@page import="com.tech.blog.entities.Category"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="com.tech.blog.dao.LikeDao"%>
+<%@page import="com.tech.blog.dao.Userdao"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.tech.blog.entities.Category"%>
+<%@page import="com.tech.blog.entities.Category"%>
 <%@page import="com.tech.blog.helper.ConnectionProvider"%>
 <%@page import="com.tech.blog.dao.PostDao"%>
-<%@page import="com.tech.blog.entities.Message"%>
+<%@page import="com.tech.blog.entities.Post"%>
 <%@page import="com.tech.blog.entities.User"%>
-<%@page errorPage="error_page.jsp" %>
+<%@page import="java.text.DateFormat"%>
+<%@page  errorPage="error_page.jsp" %>
+
+
+
 <%
 
     User user = (User) session.getAttribute("currentUser");
@@ -14,149 +22,171 @@
 
 
 %>
+<%    int postId = Integer.parseInt(request.getParameter("post_id"));
+    PostDao d = new PostDao(ConnectionProvider.getConnection());
+
+    Post p = d.getPostByPostId(postId);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile </title>
+    <title><%= p.getpTitle() %>|| Techblog By Utkarsh Khalkar</title>
 
     <!--css-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="css/mystyles.css"  rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="css/mystyles.css"  rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        .banner-background{
-        clip-path: polygon(0 0, 100% 0, 100% 79%, 0 95%);
-        }
+        <style>
+            .banner-background{
+            clip-path: polygon(0 0, 100% 0, 100% 79%, 0 95%);
+
+            }
+            .post-title {
+                font-weight: 100;
+                font-size: 30px; /* Adjust font size as needed */
+                color: #333; /* Specify text color */
+                /* text-align: center;  Center-align the text */
+                margin-bottom: 20px; /* Add bottom margin for spacing */
+               /* text-transform: uppercase;  Convert text to uppercase */
+                letter-spacing: 1px; /* Adjust letter spacing for better readability */
+                line-height: 1.5; /* Adjust line height for better readability */
+                /* Add any other desired styles */
+                font-family: "Times New Roman", Times, serif;
+            }
+            .post-content {
+                font-weight: 100;
+                font-size: 20px;
+                font-family: "Times New Roman", Times, serif; /* Specify the font family */
+            }
+
+            .post-date{
+                font-style: italic;
+                font-weight: bold;
+            }
+            .post-user-info{
+                font-size: 18px;
+
+            }
+            .row-user{
+            border:1px solid #e2e2e2;
+            padding-top: 15px;
+            }
         body{
             background:url(img/keyboard.jpg);
             background-size: cover;
             background-attachment: fixed;
         }
-    </style>
-    <style>
-        .list-group-item.active {
-            background-color: #F98866; /* Change to desired color */
-            color: white; /* Change to desired color */
-        }
-    </style>
+
+
+        </style>
+        <style>
+            .list-group-item.active {
+                background-color: #F98866; /* Change to desired color */
+                color: white; /* Change to desired color */
+            }
+        </style>
 
 </head>
 <body>
 
-        <!-- navbar start -->
-<nav class="navbar navbar-expand-lg navbar-dark primary-background">
-  <a class="navbar-brand" href="index.jsp"><span class="fa fa-asterisk"></span>Tech Blog</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+     <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg navbar-dark primary-background">
+      <a class="navbar-brand" href="index.jsp"><span class="fa fa-asterisk"></span>Tech Blog</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"><span class="fa fa-bell-o"></span>Learn Code <span class="sr-only">(current)</span></a>
-      </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="profile.jsp"><span class="fa fa-bell-o"></span>Learn Code With Utkarsh <span class="sr-only">(current)</span></a>
+          </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         <span class="fa fa-check-square-o"> </span>Categories
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Programming Language</a>
-          <a class="dropdown-item" href="#">Project Implementation</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Data Structure </a>
-        </div>
-      </li>
-      <li class="nav-item">
-              <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span>Contact</a>
-       </li>
-        <li class="nav-item">
-              <a class="nav-link" href="#"data-toggle="modal" data-target="#add-post-modal"><span class="fa fa-asterisk"></span>Do Post</a>
-       </li>
-
-    </ul>
-    <ul class="navbar-nav mr-right">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <span class="fa fa-check-square-o"> </span>Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Programming Language</a>
+              <a class="dropdown-item" href="#">Project Implementation</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Data Structure </a>
+            </div>
+          </li>
+          <li class="nav-item">
+                  <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span>Contact</a>
+           </li>
             <li class="nav-item">
-                  <a class="nav-link" href="#!" data-toggle="modal" data-target="#profile-modal"> <span class="fa fa-user-circle "></span> <%= user.getName() %></a>
-            </li>
+                  <a class="nav-link" href="#"data-toggle="modal" data-target="#add-post-modal"><span class="fa fa-asterisk"></span>Do Post</a>
+           </li>
 
-            <li class="nav-item">
-                  <a class="nav-link" href="LogoutServlet"> <span class="fa fa-user-plus "></span> Logout</a>
-            </li>
-    </ul>
-  </div>
-</nav>
-    <!-- navbar end -->
+        </ul>
+        <ul class="navbar-nav mr-right">
+                <li class="nav-item">
+                      <a class="nav-link" href="#!" data-toggle="modal" data-target="#profile-modal"> <span class="fa fa-user-circle "></span> <%= user.getName() %></a>
+                </li>
 
-                           <%
-                                       Message m = (Message) session.getAttribute("msg");
-                                       if (m != null) {
-                                   %>
-                                   <div class="alert <%= m.getCssClass()%>" role="alert">
-                                       <%= m.getContent()%>
-                                   </div>
+                <li class="nav-item">
+                      <a class="nav-link" href="LogoutServlet"> <span class="fa fa-user-plus "></span> Logout</a>
+                </li>
+        </ul>
+      </div>
+    </nav>
+        <!-- navbar end -->
 
 
-                                   <%
-                                           session.removeAttribute("msg");
-                                       }
 
-                                   %>
+     <!-- main content of body -->
 
+    <div class="container">
+        <div class="row my-4">
 
-              <!-- main body of the page -->
-                <main >
-                    <div class="container">
-                        <div class="row mt-4">
-                            <!--first column-->
-                             <!--categories-->
-                            <div class="col-md-4">
-                            <!--categories-->
-                                <div class="list-group">
-                                    <a href="#" onclick="getPosts(0, this); return changeBackgroundColor(this);" class="c-link list-group-item list-group-item-action active">
-                                        All Posts
-                                    </a>
-                                    <!--categories-->
-                                    <%
-                                    PostDao d = new PostDao(ConnectionProvider.getConnection());
-                                    ArrayList<Category> list1 = d.getAllCategories();
-                                    for (Category cc : list1) {
-                                    %>
-                                    <a href="#" onclick="getPosts(<%= cc.getCid()%>, this); return changeBackgroundColor(this);" class="c-link list-group-item list-group-item-action">
-                                        <%= cc.getName()%>
-                                    </a>
-                                    <% } %>
-                                </div>
-
-
-                            </div>
-                            <!--second column-->
-                            <div class="col-md-8" >
-                             <!--post-->
-                             <div class="container text-center" id="loader">
-                                      <i class="fa fa-refresh fa-4x fa-spin" style="color: white;"></i>
-                                      <h3 class="mt-2"style="color: white;">Loading...</h3>
-                             </div>
-                             <div class="container-fluid" id="post-container">
-
-                             </div>
-                            </div>
-                     </div>
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header primary-background">
+                    <h4 class="post-title"><%= p.getpTitle() %></h4>
                     </div>
-                </main>
+                    <div class="card-body ">
+                   <img class="card-img-top my-2" src="blog_pics/<%= p.getpPic() %>" alt="Card image cap" style="height: 350px; width: 450px; display: block; margin: auto;">
+                    <div class="row my-2 row-user">
+                        <div class="col-md-8">
+                        <% Userdao ud = new Userdao(ConnectionProvider.getConnection());%>
+                           <p class="post-user-info"> <a href="#!"> <%= ud.getUserByUserId(p.getUserId()).getName()%></a> has posted : </p>
+                        </div>
+
+                        <div class="col-md-4">
+                             <p class="post-date"><%= DateFormat.getDateTimeInstance().format(p.getpTime()) %></p>
+                        </div>
+                    </div>
+                    <p class="post-content"><%= p.getpContent() %></p>
+                    <br>
+                    <br>
+                    <div class="post-code">
+                    <pre><%= p.getpCode() %></pre>
+                    </div>
+                    </div>
+                    <div class="card-footer primary-background ">
+
+                            <%
+                                LikeDao ld = new LikeDao(ConnectionProvider.getConnection());
+                            %>
+
+                    <a href="#!"   onclick="doLike(<%= p.getPid()%>,<%= user.getUserId()%>)"class="btn btn-outline-light btn-sm"> <i class="fa fa-thumbs-o-up"></i>  <span class="like-counter"><%= ld.countLikeOnPost(p.getPid())%></span>  </a>
+                     <a href="#!" class="btn btn-outline-light btn-sm"> <i class="fa fa-commenting-o"></i> <span>20</span>  </a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-              <!--end of  main body page -->
 
 
-
-
-
-
-
+    <!-- End of main content of body -->
 
     <!-- profile modal start -->
 
@@ -406,49 +436,5 @@
                     })
                 })
             </script>
-            <!--loading post using ajax-->
-            <script>
-
-                function getPosts(catId,temp)
-                {
-                     $("#loader").show();
-                     $("#post-container").hide();
-
-                    $(" .c-link").removeClass('active')
-                    $.ajax({
-                            url:"load_posts.jsp",
-                            data:{cid: catId},
-                            success:  function(data,textStatus,jqXHR){
-
-                                console.log(data);
-                                $("#loader").hide();
-                                 $("#post-container").show();
-                                 $("#post-container").html(data);
-                                 $(temp).addClass('active')
-                            }
-                            })
-                }
-                $(document).ready(function (e) {
-
-                                let allPostRef = $('.c-link')[0]
-                                getPosts(0, allPostRef)
-
-
-                            })
-            </script>
-
-
-             <!--for background color-->
-           <script>
-               function changeBackgroundColor(element) {
-                   var links = document.querySelectorAll('.list-group-item');
-                   links.forEach(function(link) {
-                       link.classList.remove('active');
-                   });
-                   element.classList.add('active');
-                   return false; // Prevent the default link behavior
-               }
-           </script>
-
 </body>
 </html>

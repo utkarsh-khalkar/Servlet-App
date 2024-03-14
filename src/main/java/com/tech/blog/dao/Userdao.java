@@ -97,4 +97,34 @@ public class Userdao {
 
         return b;
     }
+
+    public User getUserByUserId(int userId) {
+        User user = null;
+        try {
+            String q = "select * from user where userId=?";
+            PreparedStatement ps = conn.prepareStatement(q);
+            ps.setInt(1, userId);
+            ResultSet set = ps.executeQuery();
+            if (set.next()) {
+                user = new User();
+
+//             data from db
+                String name = set.getString("name");
+//             set to user object
+                user.setName(name);
+
+                user.setUserId(set.getInt("userId"));
+                user.setEmail(set.getString("email"));
+                user.setPassword(set.getString("password"));
+                user.setGender(set.getString("gender"));
+                user.setAbout(set.getString("about"));
+                user.setRdate(set.getTimestamp("rdate"));
+                user.setProfile(set.getString("profile"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
 }
